@@ -1,12 +1,12 @@
 _base_ = [
-    '../_base_/datasets/coco_detection.py',
-    '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py',
+    '../../_base_/datasets/voc0712.py',
+    '../../_base_/schedules/schedule_1x.py', '../../_base_/default_runtime.py',
     # './retinanet_tta.py'
 ]
-work_dir = 'work_dirs/maploss_r50_fpn_1x_coco'
+work_dir = 'work_dirs/maploss_r50_fpn_1x_voc'
 # model settings
 # compile = True
-batch_size = 8
+batch_size = 16
 model = dict(
     type='SingleStageDetector',
     data_preprocessor=dict(
@@ -35,7 +35,7 @@ model = dict(
     ),
     bbox_head=dict(
         type='mAPLossHead',
-        num_classes=80,
+        num_classes=20,
         in_channels=256,
         stacked_convs=4,
         feat_channels=256,
@@ -53,7 +53,7 @@ model = dict(
     ),
     # model training and testing settings
     train_cfg=dict(
-        loss_weight_mAP=0.05,
+        loss_weight_mAP=0.025,
         score_th=(-5, 5),
         momentum=0.9,
         discrete_num=200,
@@ -61,7 +61,7 @@ model = dict(
         lead_ratio=10,
         iou_weight_alpha=10,
         class_cat='switch',
-        evaluator='coco',
+        evaluator='voc',
     ),
     test_cfg=dict(
         nms_pre=1000,
@@ -86,17 +86,8 @@ optim_wrapper = dict(
 train_dataloader = dict(
     batch_size=batch_size,
     num_workers=batch_size // 2,
-    batch_sampler=dict(drop_last=True),
-    dataset=dict(serialize_data=False, )
 )
 
 custom_hooks = [
     dict(type='SetEpochHook', ),
 ]
-
-# val_evaluator = dict(
-#     iouwise=True,
-#     # classwise=True,
-#     # proposal_nums=(1000, 3000, 10000),
-# )
-# test_evaluator = val_evaluator

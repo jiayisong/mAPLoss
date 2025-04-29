@@ -35,7 +35,7 @@ FACTOR = 1e-3
 
 
 @MODELS.register_module()
-class EmAPHead(BaseDenseHead):
+class mAPLossHead(BaseDenseHead):
     """Anchor-free head (FCOS, Fovea, RepPoints, etc.).
 
     Args:

@@ -1,12 +1,13 @@
 _base_ = [
-    '../_base_/datasets/coco_detection.py',
-    '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py',
-    # './retinanet_tta.py'
+    '../../_base_/datasets/cityscapes_detection.py',
+    '../../_base_/default_runtime.py', '../../_base_/schedules/schedule_1x.py'
 ]
-work_dir = 'work_dirs/maploss_r50_fpn_1x_coco'
+# work_dir = '/mnt/jys/mmdet3.0/work_dirs/15/'
+load_from = 'work_dirs/maploss_r50_fpn_1x_coco/epoch_12.pth'  # noqa
+work_dir = 'work_dirs/maploss_r50_fpn_64e_cityscapes'
 # model settings
 # compile = True
-batch_size = 8
+batch_size = 4
 model = dict(
     type='SingleStageDetector',
     data_preprocessor=dict(
@@ -35,7 +36,7 @@ model = dict(
     ),
     bbox_head=dict(
         type='mAPLossHead',
-        num_classes=80,
+        num_classes=8,
         in_channels=256,
         stacked_convs=4,
         feat_channels=256,
@@ -53,7 +54,7 @@ model = dict(
     ),
     # model training and testing settings
     train_cfg=dict(
-        loss_weight_mAP=0.05,
+        loss_weight_mAP=0.01,
         score_th=(-5, 5),
         momentum=0.9,
         discrete_num=200,
@@ -70,26 +71,26 @@ model = dict(
         nms=dict(type='nms', iou_threshold=0.6),
         max_per_img=100))
 
+
 # find_unused_parameters = True
 # optimizer
 optim_wrapper = dict(
-    # type='MyOptimWrapper',
     type='AmpOptimWrapper',
     loss_scale=dict(
         init_scale=2 ** 10, growth_factor=2, backoff_factor=0.5, growth_interval=10000,
     ),
+    # accumulative_counts=2,
+    # type='MyOptimWrapper',
     clip_grad=dict(max_norm=10),
     # paramwise_cfg=dict(norm_decay_mult=0.),
-    optimizer=dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0001)
+    optimizer=dict(type='SGD', lr=0.005, momentum=0.9, weight_decay=0.0001)
     # optimizer=dict(type='AdamW', lr=0.0001, weight_decay=0.1, _delete_=True)
 )
 train_dataloader = dict(
     batch_size=batch_size,
     num_workers=batch_size // 2,
     batch_sampler=dict(drop_last=True),
-    dataset=dict(serialize_data=False, )
 )
-
 custom_hooks = [
     dict(type='SetEpochHook', ),
 ]
@@ -100,3 +101,20 @@ custom_hooks = [
 #     # proposal_nums=(1000, 3000, 10000),
 # )
 # test_evaluator = val_evaluator
+# training schedule for 1x
+train_cfg = dict(max_epochs=8)
+
+
+# learning rate
+param_scheduler = [
+    dict(
+        type='LinearLR', start_factor=0.001, by_epoch=False, begin=0, end=500),
+    dict(
+        type='MultiStepLR',
+        begin=0,
+        end=8,
+        by_epoch=True,
+        milestones=[7, ],
+        gamma=0.1)
+]
+# actual epoch = 8 * 8 = 64
