@@ -5,6 +5,9 @@ Based on [mmdetection3.0.0](https://github.com/open-mmlab/mmdetection/tree/v3.0.
 | :-------: | :-----: | :------: |  :------: | :----------: | :--------------: | :--------: | 
 | R-50-FPN  |   12e   |   N      |     41.8     |   -    |   [config](./configs/maploss/maploss_r50_fpn_1x_coco.py)   |    [model]() \| [log]()  |
 | R-50-FPN  |   24e   |   N      |     42.0     |   -    |   [config](./configs/maploss/maploss_r50_fpn_2x_coco.py)   |    [model]() \| [log]()  |
-| R-50-FPN  |   24e   |   Y      |     44.9     |   -    |   [config](./configs/maploss/maploss_r50_fpn_ms-2x_coco.py)   |    [model]() \| [log]()  |
-| R-101-FPN  |   24e   |   Y      |     46.4     |   -    |   [config](./configs/maploss/maploss_r101_fpn_ms-2x_coco.py)   |    [model]() \| [log]()  |
-| X-101-64x4d-FPN  |   24e   |   Y      |     48.0     |   -    |   [config](./configs/maploss/maploss_x101-64x4d_fpn_ms-2x_coco.py)   |    [model]() \| [log]()  |
+| R-50-FPN  |   24e   |   Y      |     44.9     |   45.3   |   [config](./configs/maploss/maploss_r50_fpn_ms-2x_coco.py)   |    [model]() \| [log]()  |
+| R-101-FPN  |   24e   |   Y      |     46.4     |   46.9    |   [config](./configs/maploss/maploss_r101_fpn_ms-2x_coco.py)   |    [model]() \| [log]()  |
+| X-101-64x4d-FPN  |   24e   |   Y      |     48.0     |   48.5   |   [config](./configs/maploss/maploss_x101-64x4d_fpn_ms-2x_coco.py)   |    [model]() \| [log]()  |
+| R-50rsb-FPN  |   12e   |   N      |     43.2     |   -    |   [config](./configs/maploss/maploss_r50-rsb-pre_fpn_1x_coco.py)   |    [model]() \| [log]()  |
+| ConvNeXt-v2-t-FPN  |   12e   |   N      |     44.0     |   -    |   [config](./configs/maploss/maploss_convnext-v2-t_fpn_1x_coco.py)   |    [model]() \| [log]()  |
+| ConvNeXt-v2-b-FPN  |   24e   |   Y      |     48.6     |   -    |   [config](./configs/maploss/maploss_convnext-v2-b_fpn_ms-2x_coco.py)   |    [model]() \| [log]()  |
