@@ -1,6 +1,6 @@
 # mAPLoss
 Based on [mmdetection3.0.0](https://github.com/open-mmlab/mmdetection/tree/v3.0.0), After installing mmdetection 3.0.0, add the files I provided and register. We provide config files, log files and checkpoint files in the paper.
-
+## COCO Dataset
 | Backbone  | Lr schd |  MS train | val box AP |  test box AP |  Config  |    Download   |
 | :-------: | :-----: | :------: |  :------: | :----------: | :--------------: | :--------: | 
 | R-50-FPN  |   12e   |   N      |     41.8     |   -    |   [config](./configs/maploss/maploss_r50_fpn_1x_coco.py)   |    [model]() \| [log]()  |
@@ -11,3 +11,13 @@ Based on [mmdetection3.0.0](https://github.com/open-mmlab/mmdetection/tree/v3.0.
 | R-50rsb-FPN  |   12e   |   N      |     43.2     |   -    |   [config](./configs/maploss/maploss_r50-rsb-pre_fpn_1x_coco.py)   |    [model]() \| [log]()  |
 | ConvNeXt-v2-t-FPN  |   12e   |   N      |     44.0     |   -    |   [config](./configs/maploss/maploss_convnext-v2-t_fpn_1x_coco.py)   |    [model]() \| [log]()  |
 | ConvNeXt-v2-b-FPN  |   24e   |   Y      |     48.6     |   -    |   [config](./configs/maploss/maploss_convnext-v2-b_fpn_ms-2x_coco.py)   |    [model]() \| [log]()  |
+
+## CityScapes Dataset
+| Backbone  | Lr schd |  MS train | val box AP |   Config  |    Download   |
+| :-------: | :-----: | :------: |  :------: | :----------: | :--------------: |
+| R-50-FPN  |   64e   |   Y      |     44.7     |   [config](./configs/maploss/cityscapes/maploss_r50_fpn_64e_cityscapes.py)   |    [model]() \| [log]()  |
+
+## VOC Dataset
+| Backbone  | Lr schd |  MS train | box AP (voc style) |   Config  |    Download   |
+| :-------: | :-----: | :------: |  :------: | :----------: | :--------------: |
+| R-50-FPN  |   12e   |   N      |     79.1     |   [config](./configs/maploss/voc/maploss_r50_fpn_1x_voc.py)   |    [model]() \| [log]()  |
