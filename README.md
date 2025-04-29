@@ -15,7 +15,7 @@ Based on [mmdetection3.0.0](https://github.com/open-mmlab/mmdetection/tree/v3.0.
 ## CityScapes Dataset
 | Backbone  | Lr schd |  MS train | val box AP |   Config  |    Download   |
 | :-------: | :-----: | :------: |  :------: | :----------: | :--------------: |
-| R-50-FPN  |   64e   |   Y      |     44.7     |   [config](./configs/maploss/cityscapes/maploss_r50_fpn_64e_cityscapes.py)   |    [model]() \| [log]()  |
+| R-50-FPN  |   64e   |   Y      |     44.7     |   [config](./configs/maploss/cityscapes/maploss_r50_fpn_64e_cityscapes.py)   |    [model](https://drive.google.com/file/d/1i8qCJLXbK1sjz28ki1U1uWV7TEoOjCPZ/view?usp=sharing) \| [log](https://drive.google.com/file/d/13hhPudIE8IfdpY_LvQAECw_NFgGwmToO/view?usp=sharing)  |
 
 ## VOC Dataset
 | Backbone  | Lr schd |  MS train | box AP (voc style) |   Config  |    Download   |
