@@ -1,5 +1,5 @@
 # mAPLoss
-Based on [mmdetection3.0.0](https://github.com/open-mmlab/mmdetection/tree/v3.0.0), After installing mmdetection 3.0.0, add the files I provided and register. We provide config files, log files and checkpoint files in the paper.
+Code implementation of my paper [mAPLoss](https://ieeexplore.ieee.org/document/11018625). Based on [mmdetection3.0.0](https://github.com/open-mmlab/mmdetection/tree/v3.0.0), After installing mmdetection 3.0.0, add the files I provided and register. We provide config files, log files and checkpoint files in the paper.
 ## COCO Dataset
 | Backbone  | Lr schd |  MS train | val box AP |  test box AP |  Config  |    Download   |
 | :-------: | :-----: | :------: |  :------: | :----------: | :--------------: | :--------: | 
@@ -21,3 +21,18 @@ Based on [mmdetection3.0.0](https://github.com/open-mmlab/mmdetection/tree/v3.0.
 | Backbone  | Lr schd |  MS train | box AP (voc style) |   Config  |    Download   |
 | :-------: | :-----: | :------: |  :------: | :----------: | :--------------: |
 | R-50-FPN  |   12e   |   N      |     79.1     |   [config](./configs/maploss/voc/maploss_r50_fpn_1x_voc.py)   |    [model](https://1drv.ms/u/c/eac219a4ecb09de4/EcbkYDP6R3NCnuHe4NIu2OYBVTKuJgRHsoYXew6ZjAKm6w?e=QADpad) \| [log](https://1drv.ms/u/c/eac219a4ecb09de4/ER2usE5vAm1Hpd_5ivEAGaEBnkami9Z6Jfc5TakN-YvQXg?e=XwpqKW)  |
+
+## Citation
+If you think our work is useful in your research, please consider citing:
+```
+@ARTICLE{10637319,
+  author={Jia, Yisong and Pan, Huihui and Wang, Jue and Sun, Weichao},
+  journal={IEEE Transactions on Emerging Topics in Computational Intelligence}, 
+  title={CSP-Lite: Real-Time and Efficient Keypoint-Based Pedestrian Detection}, 
+  year={2025},
+  volume={9},
+  number={2},
+  pages={1627-1637},
+  keywords={Pedestrians;Feature extraction;Real-time systems;Training;Task analysis;Fuses;Costs;Anchor-free;pedestrian detection;real-time;trick for convolutional neural networks},
+  doi={10.1109/TETCI.2024.3440193}}
+```
